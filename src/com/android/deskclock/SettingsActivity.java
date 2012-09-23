@@ -196,6 +196,7 @@ public class SettingsActivity extends PreferenceActivity
             final ListPreference listPref = (ListPreference) pref;
             String action = (String) newValue;
             updateShakeActionSummary(listPref, action);
+<<<<<<< HEAD
         } else if (KEY_DIGITAL_CLOCK_TIME_COLOR.equals(pref.getKey())
                 || KEY_DIGITAL_CLOCK_DATE_COLOR.equals(pref.getKey())
                 || KEY_DIGITAL_CLOCK_ALARM_COLOR.equals(pref.getKey())) {
@@ -207,6 +208,9 @@ public class SettingsActivity extends PreferenceActivity
             update.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIds);
             getApplicationContext().sendBroadcast(update);
         }
+=======
+        } 
+>>>>>>> c8e28b9... clock: added flip and shake features
         return true;
     }
 
@@ -255,7 +259,7 @@ public class SettingsActivity extends PreferenceActivity
         listPref = (ListPreference) findPreference(KEY_VOLUME_BUTTONS);
         listPref.setSummary(listPref.getEntry());
         listPref.setOnPreferenceChangeListener(this);
-        
+
         listPref = (ListPreference) findPreference(KEY_FLIP_ACTION);
         String action = listPref.getValue();
         updateFlipActionSummary(listPref, action);
@@ -265,6 +269,7 @@ public class SettingsActivity extends PreferenceActivity
         String shake = listPref.getValue();
         updateShakeActionSummary(listPref, shake);
         listPref.setOnPreferenceChangeListener(this);
+
 
         ColorPickerPreference clockTimeColor = (ColorPickerPreference) findPreference(KEY_DIGITAL_CLOCK_TIME_COLOR);
         clockTimeColor.setOnPreferenceChangeListener(this);
