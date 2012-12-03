@@ -740,5 +740,12 @@
     <string name="widget_12_hours_format_m" translatable="false">:mm<font size="15">aa</font></string>
     <string name="widget_24_hours_format_h" translatable="false">kk</string>
     <string name="widget_24_hours_format_m" translatable="false">:mm</string>
+    
+    <!-- Setting title for showing/hiding the alarm status bar icon -->
+    <string name="show_status_bar_icon_title">Show icon</string>
+	
+    <!-- Setting summary for showing/hiding the alarm statusbar icon -->
+    <string name="show_status_bar_icon_summary">Show an icon in the status bar when an alarm is set</string>
+    
 </resources>
 
