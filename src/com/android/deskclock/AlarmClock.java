@@ -465,6 +465,7 @@ public class AlarmClock extends Activity implements LoaderManager.LoaderCallback
             CheckBox vibrate;
             ViewGroup collapse;
             TextView ringtone;
+            CheckBox incvol;
 
             // Other states
             Alarm alarm;
@@ -593,6 +594,7 @@ public class AlarmClock extends Activity implements LoaderManager.LoaderCallback
             holder.vibrate = (CheckBox) view.findViewById(R.id.vibrate_onoff);
             holder.collapse = (ViewGroup) view.findViewById(R.id.collapse);
             holder.ringtone = (TextView) view.findViewById(R.id.choose_ringtone);
+            holder.incvol = (CheckBox) view.findViewById(R.id.alarm_incvol_onoff);
 
             view.setTag(holder);
             return view;
@@ -874,7 +876,35 @@ public class AlarmClock extends Activity implements LoaderManager.LoaderCallback
                     asyncUpdateAlarm(alarm, false);
                 }
             });
+            
+            itemHolder.incvol.setVisibility(View.VISIBLE);
+            if (!alarm.incvol) {
+                itemHolder.incvol.setChecked(false);
+                itemHolder.incvol.setTextColor(mColorDim);
+            } else {
+                itemHolder.incvol.setChecked(true);
+                itemHolder.incvol.setTextColor(mColorLit);
+            }
+            itemHolder.incvol.setOnLongClickListener(mLongClickListener);
 
+            itemHolder.incvol.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final boolean checked = ((CheckBox) v).isChecked();
+                    //When action mode is on - simulate long click
+                    if (doLongClick(v)) {
+                        return;
+                    }
+                    if (checked) {
+                        itemHolder.incvol.setTextColor(mColorLit);
+                    } else {
+                        itemHolder.incvol.setTextColor(mColorDim);
+                    }
+                    alarm.incvol = checked;
+                    asyncUpdateAlarm(alarm, false);
+                }
+            });
+            
             itemHolder.collapse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
