@@ -404,7 +404,17 @@ public class DeskClock extends Activity implements LabelDialogFragment.TimerLabe
         public void onTabSelected(Tab tab, FragmentTransaction ft) {
             TabInfo info = (TabInfo)tab.getTag();
             mPager.setCurrentItem(info.getPosition());
+<<<<<<< HEAD
             refreshKeepScreenOn();
+=======
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+            if (info.getPosition() == STOPWATCH_TAB_INDEX
+                    && prefs.getBoolean(SettingsActivity.KEY_KEEP_DISPLAY_ON_STOPWATCH, true)) {
+                getWindow().addFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+            } else {
+                getWindow().clearFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+>>>>>>> 637f902... Keep the display on while stopwatch or timer is running
         }
 
         @Override
