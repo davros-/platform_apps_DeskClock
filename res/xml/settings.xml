@@ -87,10 +87,23 @@
             android:dialogTitle="@string/volume_button_setting_title"
             android:entries="@array/volume_button_setting_entries"
             android:entryValues="@array/volume_button_setting_values"
-            android:defaultValue="1" />
+            android:defaultValue="0" />
     </PreferenceCategory>
 
     <PreferenceCategory
+<<<<<<< HEAD
+=======
+        android:title="@string/stopwatch_settings">
+
+        <CheckBoxPreference
+            android:key="keep_display_on_stopwatch"
+            android:title="@string/keep_display_on_stopwatch"
+            android:summary="@string/keep_display_on_stopwatch_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+>>>>>>> 05df76e... Merge tag 'android-4.2.2_r1' into HEAD
         android:key="digital_clock"
         android:title="@string/digital_gadget">
 
