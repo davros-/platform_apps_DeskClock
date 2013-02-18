@@ -91,8 +91,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-<<<<<<< HEAD
-=======
         android:title="@string/stopwatch_settings">
 
         <CheckBoxPreference
@@ -103,7 +101,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
->>>>>>> 05df76e... Merge tag 'android-4.2.2_r1' into HEAD
         android:key="digital_clock"
         android:title="@string/digital_gadget">
 
